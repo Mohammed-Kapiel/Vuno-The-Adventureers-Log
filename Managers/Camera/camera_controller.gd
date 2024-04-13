@@ -26,6 +26,9 @@ var is_dragging : bool = false
 signal start_move_selection
 signal area_selected
 
+func _ready():
+	draw_area(false)
+
 func _input(event):
 	if(event.is_action("zoom_camera_in")):
 		zoom_dir = 1
@@ -87,12 +90,13 @@ func _physics_process(delta):
 func draw_area(is_drawn:bool):
 	if is_drawn:
 		selection_area_rect.size = abs(mouse_start_vector - mouse_end_vector)
+		var pos = Vector2()
+		pos.x = min(mouse_start_vector.x, mouse_end_vector.x)
+		pos.y = min(mouse_start_vector.y, mouse_end_vector.y)
+		selection_area_rect.position = pos
 	else:
 		selection_area_rect.size = Vector2(0, 0)
 
-	var pos = Vector2()
-	pos.x = min(mouse_start_vector.x, mouse_end_vector.x)
-	pos.y = min(mouse_start_vector.y, mouse_end_vector.y)
-	selection_area_rect.position = pos
+
 	
 	

@@ -5,14 +5,8 @@
 [node name="Camera Controller" type="CharacterBody2D" node_paths=PackedStringArray("selection_area_rect")]
 motion_mode = 1
 script = ExtResource("1_cahwp")
-selection_area_rect = NodePath("Panel")
+selection_area_rect = NodePath("")
 selection_dead_zone = 20.0
-
-[node name="Panel" type="Panel" parent="."]
-offset_left = 574.0
-offset_top = 322.0
-offset_right = 614.0
-offset_bottom = 362.0
 
 [node name="Main Camera" type="Camera2D" parent="."]
 position = Vector2(574, 322)
