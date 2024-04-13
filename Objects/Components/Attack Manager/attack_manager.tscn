@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bufu7weo7vawn"]
+
+[ext_resource type="Script" path="res://Objects/Components/Attack Manager/attack_manager.gd" id="1_b40e7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fp8ul"]
+
+[node name="Attack Manager" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_b40e7")
+
+[node name="Attack Collision Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fp8ul")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Attack Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Attack Timer" to="." method="_on_attack_timer_timeout"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Unit_Stats" load_steps=2 format=3 uid="uid://b4vcaiu3kq1ai"]
+
+[ext_resource type="Script" path="res://Objects/Units/Unit Stats/unit_stats.gd" id="1_dd7pk"]
+
+[resource]
+script = ExtResource("1_dd7pk")
+move_acceleration = 50.0
+move_speed = 200.0
+max_health = 100.0
+damage = 10.0
+attack_speed = 4.0
+attack_range = 200.0
+detection_range = 400.0

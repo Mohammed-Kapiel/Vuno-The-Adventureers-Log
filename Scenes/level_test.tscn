@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://do20j54t67i77"]
+[gd_scene load_steps=7 format=3 uid="uid://do20j54t67i77"]
 
 [ext_resource type="PackedScene" uid="uid://j1gdngxs0vdd" path="res://Managers/Camera/camera_controller.tscn" id="1_2xe5c"]
-[ext_resource type="PackedScene" uid="uid://cqouh1r7475qg" path="res://Managers/Units/unit_manager.tscn" id="1_h4676"]
+[ext_resource type="PackedScene" uid="uid://cqouh1r7475qg" path="res://Objects/Units/unit_manager.tscn" id="1_h4676"]
 [ext_resource type="PackedScene" uid="uid://brig5ceet5vng" path="res://Scenes/hud.tscn" id="2_k0u8l"]
 [ext_resource type="PackedScene" uid="uid://nu7um6h5hlo0" path="res://Objects/Units/unit.tscn" id="3_ow3gk"]
+[ext_resource type="Resource" uid="uid://ck3k7qkfamsd7" path="res://Objects/Units/Unit Stats/squire.tres" id="5_0sa4m"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gn267"]
 vertices = PackedVector2Array(516, 338, 569, 1273, -398, 1242, -406, -271, 1680, -280, 1678, 831, 968, 801, 734, 78, 722, 76)
@@ -21,15 +22,19 @@ selection_area_rect = NodePath("../HUD/Panel")
 [node name="HUD" parent="." instance=ExtResource("2_k0u8l")]
 
 [node name="Unit" parent="." instance=ExtResource("3_ow3gk")]
+position = Vector2(0, 602)
 
 [node name="Unit2" parent="." instance=ExtResource("3_ow3gk")]
-position = Vector2(493, 196)
+position = Vector2(1295, 196)
+stats = ExtResource("5_0sa4m")
 
 [node name="Unit3" parent="." instance=ExtResource("3_ow3gk")]
-position = Vector2(172, 502)
+position = Vector2(1462, 199)
+stats = ExtResource("5_0sa4m")
 
 [node name="Unit4" parent="." instance=ExtResource("3_ow3gk")]
-position = Vector2(981, 526)
+position = Vector2(1100, 202)
+stats = ExtResource("5_0sa4m")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_gn267")

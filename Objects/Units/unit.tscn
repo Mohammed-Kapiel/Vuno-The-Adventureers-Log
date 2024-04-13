@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://nu7um6h5hlo0"]
+[gd_scene load_steps=9 format=3 uid="uid://nu7um6h5hlo0"]
 
 [ext_resource type="Script" path="res://Objects/Units/unit.gd" id="1_lthus"]
-[ext_resource type="Resource" uid="uid://b4vcaiu3kq1ai" path="res://Managers/Units/Unit Stats/musketeer.tres" id="2_eoq5a"]
+[ext_resource type="Resource" uid="uid://b4vcaiu3kq1ai" path="res://Objects/Units/Unit Stats/musketeer.tres" id="2_7hurq"]
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="2_qior7"]
+[ext_resource type="PackedScene" uid="uid://bufu7weo7vawn" path="res://Objects/Components/Attack Manager/attack_manager.tscn" id="4_l5wyw"]
+[ext_resource type="PackedScene" uid="uid://bmms4yangvq1x" path="res://Objects/Components/Health Manager/health_manager.tscn" id="4_scuqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we0p5"]
 size = Vector2(129, 76)
@@ -16,9 +18,12 @@ border_width_bottom = 4
 border_color = Color(4.81307e-07, 0.705976, 0.523266, 1)
 border_blend = true
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1n6xd"]
+radius = 23.65
+
 [node name="Unit" type="CharacterBody2D" groups=["Units"]]
 script = ExtResource("1_lthus")
-stats = ExtResource("2_eoq5a")
+stats = ExtResource("2_7hurq")
 
 [node name="Art" type="Sprite2D" parent="."]
 texture = ExtResource("2_qior7")
@@ -42,3 +47,18 @@ avoidance_enabled = true
 radius = 68.64
 max_neighbors = 100
 debug_enabled = true
+
+[node name="Detection Range" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="Detection Collision Shape" type="CollisionShape2D" parent="Detection Range"]
+shape = SubResource("CircleShape2D_1n6xd")
+
+[node name="Attack Manager" parent="." node_paths=PackedStringArray("ignored") instance=ExtResource("4_l5wyw")]
+ignored = [NodePath("../Health Manager")]
+
+[node name="Health Manager" parent="." instance=ExtResource("4_scuqf")]
+
+[connection signal="body_entered" from="Detection Range" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="Detection Range" to="." method="_on_detection_range_body_exited"]
+[connection signal="death" from="Health Manager" to="." method="on_death"]
