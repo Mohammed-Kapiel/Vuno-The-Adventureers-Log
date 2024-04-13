@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://do20j54t67i77"]
+
+[ext_resource type="PackedScene" uid="uid://j1gdngxs0vdd" path="res://Managers/Camera/camera_controller.tscn" id="1_2xe5c"]
+[ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="2_m7k2a"]
+
+[node name="Level Test" type="Node2D"]
+
+[node name="Camera Controller" parent="." instance=ExtResource("1_2xe5c")]
+position = Vector2(177, 92)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(440, 1)
+texture = ExtResource("2_m7k2a")
