@@ -1,7 +1,32 @@
-[gd_scene format=3 uid="uid://brig5ceet5vng"]
+[gd_scene load_steps=2 format=3 uid="uid://brig5ceet5vng"]
+
+[ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_y7mxt"]
 
 [node name="HUD" type="CanvasLayer"]
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 100.0
 offset_bottom = 100.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mana: "
+icon = ExtResource("1_y7mxt")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "000"

@@ -6,7 +6,10 @@ var selected_units : Array[Unit]
 func _ready():
 	var tmp = get_tree().get_nodes_in_group("Units")
 	for t in tmp:
-		units.append(t as Unit)
+		var unit : Unit = t as Unit
+		units.append(unit)
+		unit.tree_exiting.connect(func(): remove_unit(unit))
+		
 
 func _on_area_selected(camera_controller: CameraController):
 
@@ -27,3 +30,6 @@ func _get_units_in_area(area):
 				unit.select(false)
 		else:
 			unit.select(false)
+
+func remove_unit(unit_to_remove: Unit):
+	units.erase(unit_to_remove)
