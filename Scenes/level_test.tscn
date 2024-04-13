@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://do20j54t67i77"]
+[gd_scene load_steps=6 format=3 uid="uid://do20j54t67i77"]
 
 [ext_resource type="PackedScene" uid="uid://j1gdngxs0vdd" path="res://Managers/Camera/camera_controller.tscn" id="1_2xe5c"]
 [ext_resource type="PackedScene" uid="uid://cqouh1r7475qg" path="res://Managers/Units/unit_manager.tscn" id="1_h4676"]
 [ext_resource type="PackedScene" uid="uid://brig5ceet5vng" path="res://Scenes/hud.tscn" id="2_k0u8l"]
 [ext_resource type="PackedScene" uid="uid://nu7um6h5hlo0" path="res://Objects/Units/unit.tscn" id="3_ow3gk"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_gn267"]
+vertices = PackedVector2Array(516, 338, 569, 1273, -398, 1242, -406, -271, 1680, -280, 1678, 831, 968, 801, 734, 78, 722, 76)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(3, 4, 7, 8), PackedInt32Array(3, 8, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-417, -281, -408, 1252, 580, 1284, 526, 341, 726, 87, 961, 811, 1688, 842, 1691, -291)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level Test" type="Node2D"]
 
@@ -24,6 +30,9 @@ position = Vector2(172, 502)
 
 [node name="Unit4" parent="." instance=ExtResource("3_ow3gk")]
 position = Vector2(981, 526)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_gn267")
 
 [connection signal="area_selected" from="Camera Controller" to="Unit Manager" method="_on_area_selected"]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://nu7um6h5hlo0"]
+[gd_scene load_steps=6 format=3 uid="uid://nu7um6h5hlo0"]
 
 [ext_resource type="Script" path="res://Objects/Units/unit.gd" id="1_lthus"]
+[ext_resource type="Resource" uid="uid://b4vcaiu3kq1ai" path="res://Managers/Units/Unit Stats/musketeer.tres" id="2_eoq5a"]
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="2_qior7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we0p5"]
@@ -17,6 +18,7 @@ border_blend = true
 
 [node name="Unit" type="CharacterBody2D" groups=["Units"]]
 script = ExtResource("1_lthus")
+stats = ExtResource("2_eoq5a")
 
 [node name="Art" type="Sprite2D" parent="."]
 texture = ExtResource("2_qior7")
@@ -32,3 +34,11 @@ offset_top = -67.0
 offset_right = 67.0
 offset_bottom = 70.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u6bx0")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 40.86
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 68.64
+max_neighbors = 100
+debug_enabled = true
