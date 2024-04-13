@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=2 format=3 uid="uid://cd8sq6l4kxbuh"]
+
+[ext_resource type="Script" path="res://Objects/Spells/spell.gd" id="1_56sgg"]
+
+[resource]
+script = ExtResource("1_56sgg")
+mana_cost = 300.0

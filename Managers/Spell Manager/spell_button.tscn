@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bagpxoy41hv8f"]
+
+[ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_rnfef"]
+[ext_resource type="Script" path="res://Managers/Spell Manager/spell_button.gd" id="2_pwsc8"]
+
+[node name="Spell Button" type="Button"]
+text = "Mana: "
+icon = ExtResource("1_rnfef")
+script = ExtResource("2_pwsc8")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

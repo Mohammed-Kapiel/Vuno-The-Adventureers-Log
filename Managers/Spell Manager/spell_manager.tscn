@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr26l3nx8fa8y"]
+
+[ext_resource type="Script" path="res://Managers/Spell Manager/spell_manager.gd" id="1_wdoxy"]
+
+[node name="Spell Manager" type="Node"]
+script = ExtResource("1_wdoxy")
