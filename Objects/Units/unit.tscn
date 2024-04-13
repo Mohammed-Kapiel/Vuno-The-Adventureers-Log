@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://nu7um6h5hlo0"]
+
+[ext_resource type="Script" path="res://Objects/Units/unit.gd" id="1_lthus"]
+[ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="2_qior7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_we0p5"]
+size = Vector2(129, 76)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6bx0"]
+bg_color = Color(0, 0.705882, 0.521569, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(4.81307e-07, 0.705976, 0.523266, 1)
+border_blend = true
+
+[node name="Unit" type="CharacterBody2D" groups=["Units"]]
+script = ExtResource("1_lthus")
+
+[node name="Art" type="Sprite2D" parent="."]
+texture = ExtResource("2_qior7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 28)
+shape = SubResource("RectangleShape2D_we0p5")
+
+[node name="Selection Overlay" type="Panel" parent="."]
+visible = false
+offset_left = -69.0
+offset_top = -67.0
+offset_right = 67.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u6bx0")

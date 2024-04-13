@@ -24,7 +24,7 @@ var mouse_end_vector = Vector2()
 var is_dragging : bool = false
 
 signal start_move_selection
-signal area_selected
+signal area_selected(CameraController)
 
 func _ready():
 	draw_area(false)
@@ -63,7 +63,7 @@ func get_slection_input():
 			mouse_end_vector = mouse_pos
 			is_dragging = false 
 			draw_area(false)
-			emit_signal("area_selected")
+			emit_signal("area_selected", self)
 		else:
 			mouse_end = mouse_start
 			is_dragging = false 

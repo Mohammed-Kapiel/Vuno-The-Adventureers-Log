@@ -1,11 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://brig5ceet5vng"]
-
-[ext_resource type="PackedScene" uid="uid://j1gdngxs0vdd" path="res://Managers/Camera/camera_controller.tscn" id="1_f3xhx"]
+[gd_scene format=3 uid="uid://brig5ceet5vng"]
 
 [node name="HUD" type="CanvasLayer"]
-
-[node name="Camera Controller" parent="." node_paths=PackedStringArray("selection_area_rect") instance=ExtResource("1_f3xhx")]
-selection_area_rect = NodePath("../Panel")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 100.0
