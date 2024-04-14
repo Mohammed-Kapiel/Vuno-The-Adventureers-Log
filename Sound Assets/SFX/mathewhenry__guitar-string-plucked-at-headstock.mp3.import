@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://onwvty8w3iqo"
+path="res://.godot/imported/mathewhenry__guitar-string-plucked-at-headstock.mp3-d271ce1575b7914536ec8ffd693527ca.mp3str"
+
+[deps]
+
+source_file="res://Sound Assets/SFX/mathewhenry__guitar-string-plucked-at-headstock.mp3"
+dest_files=["res://.godot/imported/mathewhenry__guitar-string-plucked-at-headstock.mp3-d271ce1575b7914536ec8ffd693527ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

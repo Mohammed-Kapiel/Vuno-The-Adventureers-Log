@@ -5,6 +5,8 @@ enum factions { Player = 0, Enemy = 1}
 var units = [[],[]]
 var selected_units : Array[Unit]
 
+var spawners = [[],[]]
+
 const faction_colors = [Color("#009e11"), Color("#f30200")]
 
 #func _ready():
@@ -14,6 +16,9 @@ const faction_colors = [Color("#009e11"), Color("#f30200")]
 		#units.append(unit)
 		#unit.tree_exiting.connect(func(): remove_unit(unit))
 		#
+
+func add_spawner(spawner_to_add: Unit_Spawner, faction : factions):
+	spawners[faction].append(spawner_to_add)
 
 func add_unit(unit_to_add: Unit, faction : factions):
 	units[faction].append(unit_to_add)

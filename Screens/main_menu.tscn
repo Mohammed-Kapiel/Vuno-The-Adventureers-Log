@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://dspfjtfrg8n3e"]
+
+[ext_resource type="Script" path="res://Screens/level.gd" id="1_n4yun"]
+[ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_pk1vs"]
+[ext_resource type="PackedScene" path="res://Managers/Scene Manager/scene_toggle_utility.tscn" id="2_3rues"]
+[ext_resource type="PackedScene" uid="uid://dtjl2pvchapxu" path="res://Screens/base_button.tscn" id="2_h28qs"]
+[ext_resource type="PackedScene" uid="uid://bi7pc6mtfos10" path="res://Screens/Settings Menu/settings_menu.tscn" id="3_5ldoe"]
+[ext_resource type="PackedScene" path="res://Managers/Scene Manager/menu_toggle_utility.tscn" id="5_h8821"]
+[ext_resource type="Script" path="res://Screens/quit_game.gd" id="6_oe28q"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n4yun")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -512.0
+offset_right = 512.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pk1vs")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.5
+offset_top = -474.0
+offset_right = 193.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Start Button" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_h28qs")]
+layout_mode = 2
+text = "MAIN_MENU_START"
+
+[node name="New Game Scene Toggle Utility" parent="MarginContainer/VBoxContainer/Start Button" instance=ExtResource("2_3rues")]
+menu_scene = "res://Scenes/level_test.tscn"
+
+[node name="Settings Button2" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_h28qs")]
+layout_mode = 2
+text = "MAIN_MENU_SETTINGS"
+
+[node name="Settings Menu Toggle Utility" parent="MarginContainer/VBoxContainer/Settings Button2" node_paths=PackedStringArray("menu_scene") instance=ExtResource("5_h8821")]
+menu_scene = NodePath("../../../../Settings Menu")
+
+[node name="Quit Button" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_h28qs")]
+layout_mode = 2
+text = "MAIN_MENU_QUIT"
+script = ExtResource("6_oe28q")
+
+[node name="Settings Menu" parent="." instance=ExtResource("3_5ldoe")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start Button" to="MarginContainer/VBoxContainer/Start Button/New Game Scene Toggle Utility" method="_on_swap_scene_requested"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings Button2" to="MarginContainer/VBoxContainer/Settings Button2/Settings Menu Toggle Utility" method="_on_open_menu_requested"]

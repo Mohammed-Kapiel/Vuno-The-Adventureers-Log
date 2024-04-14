@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://brig5ceet5vng"]
+[gd_scene load_steps=11 format=3 uid="uid://brig5ceet5vng"]
 
 [ext_resource type="Script" path="res://Scenes/hud.gd" id="1_nan5g"]
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_y7mxt"]
 [ext_resource type="PackedScene" uid="uid://bagpxoy41hv8f" path="res://Managers/Spell Manager/spell_button.tscn" id="2_5dus5"]
 [ext_resource type="Script" path="res://Scenes/Scripts/mana_resource.gd" id="2_gvi4r"]
 [ext_resource type="Resource" uid="uid://bt6uh5c77ku41" path="res://Objects/Spells/fireBolt.tres" id="3_k8il2"]
+[ext_resource type="PackedScene" uid="uid://dtjl2pvchapxu" path="res://Screens/base_button.tscn" id="4_crhiu"]
 [ext_resource type="Resource" uid="uid://cd8sq6l4kxbuh" path="res://Objects/Spells/fireBall.tres" id="4_r2hbw"]
+[ext_resource type="PackedScene" path="res://Managers/Scene Manager/menu_toggle_utility.tscn" id="5_pnktq"]
 [ext_resource type="Resource" uid="uid://ks1hq8w6otgh" path="res://Objects/Spells/summon_musketeer.tres" id="6_nq0in"]
+[ext_resource type="PackedScene" uid="uid://oxhl8m0jpeyx" path="res://Screens/Pause Menu/pause_menu.tscn" id="10_gaudu"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_nan5g")
@@ -30,6 +33,8 @@ text = "This is a test Label"
 custom_minimum_size = Vector2(0, 50)
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = -239.0
+offset_bottom = 51.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -52,12 +57,29 @@ layout_mode = 2
 text = "000"
 script = ExtResource("2_gvi4r")
 
+[node name="Settings Button2" parent="." instance=ExtResource("4_crhiu")]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -222.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 46.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+text = "MAIN_MENU_SETTINGS"
+
+[node name="Settings Menu Toggle Utility" parent="Settings Button2" node_paths=PackedStringArray("menu_scene") instance=ExtResource("5_pnktq")]
+menu_scene = NodePath("../../Pause Menu")
+
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -245.0
+offset_top = 78.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -84,3 +106,8 @@ spell_stats = ExtResource("6_nq0in")
 
 [node name="Spell Button4" parent="MarginContainer2/VBoxContainer" instance=ExtResource("2_5dus5")]
 layout_mode = 2
+
+[node name="Pause Menu" parent="." instance=ExtResource("10_gaudu")]
+visible = false
+
+[connection signal="pressed" from="Settings Button2" to="Settings Button2/Settings Menu Toggle Utility" method="_on_open_menu_requested"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi7pc6mtfos10"]
+
+[ext_resource type="Script" path="res://Screens/Settings Menu/audio_settings_menu.gd" id="1_wg6r5"]
+[ext_resource type="PackedScene" uid="uid://dtjl2pvchapxu" path="res://Screens/base_button.tscn" id="2_kvxxk"]
+[ext_resource type="PackedScene" path="res://Managers/Scene Manager/menu_toggle_utility.tscn" id="3_ln1fk"]
+
+[node name="Settings Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wg6r5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(960, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Close Button" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_kvxxk")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "X"
+
+[node name="Menu Toggle Utility" parent="ColorRect/MarginContainer/VBoxContainer/Close Button" node_paths=PackedStringArray("menu_scene") instance=ExtResource("3_ln1fk")]
+menu_scene = NodePath("../../../../..")
+
+[node name="Music Settings" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Music Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Music Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "MUSIC_VOLUME"
+
+[node name="Music HSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/Music Settings"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+ticks_on_borders = true
+
+[node name="SFX Settings" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFX Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SFX Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SOUND_EFFECTS_VOLUME"
+
+[node name="SFX HSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/SFX Settings"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+ticks_on_borders = true
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Close Button" to="ColorRect/MarginContainer/VBoxContainer/Close Button/Menu Toggle Utility" method="_on_close_menu_requested"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/Music Settings/Music HSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/SFX Settings/SFX HSlider" to="." method="_on_sfx_h_slider_value_changed"]

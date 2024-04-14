@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://do20j54t67i77"]
+[gd_scene load_steps=9 format=3 uid="uid://do20j54t67i77"]
 
 [ext_resource type="PackedScene" uid="uid://j1gdngxs0vdd" path="res://Managers/Camera/camera_controller.tscn" id="1_2xe5c"]
+[ext_resource type="Script" path="res://Screens/level.gd" id="1_nk3ma"]
 [ext_resource type="PackedScene" uid="uid://dah7adk31yfvi" path="res://Objects/Objectives/objective_manager.tscn" id="1_oyqmr"]
 [ext_resource type="PackedScene" uid="uid://b18rnqls1ctlv" path="res://Objects/Objectives/Objective Base/objective.tscn" id="2_6uo5k"]
 [ext_resource type="Script" path="res://Objects/Objectives/Objective Mana Threshold/objective_mana.gd" id="2_px541"]
@@ -14,6 +15,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-417, -281, -408, 1252,
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Level Test" type="Node2D" groups=["Levels"]]
+script = ExtResource("1_nk3ma")
+hud_is_active = true
 
 [node name="Objective Manager" parent="." instance=ExtResource("1_oyqmr")]
 

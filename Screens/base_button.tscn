@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtjl2pvchapxu"]
+
+[ext_resource type="FontFile" uid="uid://wcnotdxb1bov" path="res://Art Assets/Fonts/return-of-ganon/retganon.ttf" id="1_4cypc"]
+[ext_resource type="Script" path="res://Screens/base_button.gd" id="1_h722u"]
+[ext_resource type="AudioStream" uid="uid://onwvty8w3iqo" path="res://Sound Assets/SFX/mathewhenry__guitar-string-plucked-at-headstock.mp3" id="2_dd1sh"]
+
+[node name="Button" type="Button"]
+offset_left = -2.0
+offset_right = 78.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("1_4cypc")
+theme_override_font_sizes/font_size = 32
+text = "TEST"
+script = ExtResource("1_h722u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dd1sh")
+bus = &"SFX"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
