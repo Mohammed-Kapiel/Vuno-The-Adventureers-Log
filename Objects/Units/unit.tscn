@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Objects/Units/unit.gd" id="1_lthus"]
 [ext_resource type="Resource" uid="uid://b4vcaiu3kq1ai" path="res://Objects/Units/Unit Stats/musketeer.tres" id="2_7hurq"]
-[ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="2_qior7"]
+[ext_resource type="Texture2D" uid="uid://bc2plbm64py8h" path="res://Art Assets/Aesprite Files/Unit_Gnome.png" id="3_o5o3v"]
 [ext_resource type="PackedScene" uid="uid://bufu7weo7vawn" path="res://Objects/Components/Attack Manager/attack_manager.tscn" id="4_l5wyw"]
 [ext_resource type="PackedScene" uid="uid://bmms4yangvq1x" path="res://Objects/Components/Health Manager/health_manager.tscn" id="4_scuqf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_we0p5"]
-size = Vector2(129, 76)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nj2oi"]
+radius = 20.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6bx0"]
 bg_color = Color(0, 0.705882, 0.521569, 0)
@@ -19,36 +19,33 @@ border_color = Color(4.81307e-07, 0.705976, 0.523266, 1)
 border_blend = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1n6xd"]
-radius = 23.65
+radius = 36.2215
 
 [node name="Unit" type="CharacterBody2D" groups=["Units"]]
 script = ExtResource("1_lthus")
 stats = ExtResource("2_7hurq")
-is_selected = null
-move_target = null
-
-[node name="Art" type="Sprite2D" parent="."]
-texture = ExtResource("2_qior7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 28)
-shape = SubResource("RectangleShape2D_we0p5")
+shape = SubResource("CircleShape2D_nj2oi")
+
+[node name="Art" type="Sprite2D" parent="."]
+texture = ExtResource("3_o5o3v")
 
 [node name="Selection Overlay" type="Panel" parent="."]
 visible = false
-offset_left = -69.0
-offset_top = -67.0
-offset_right = 67.0
-offset_bottom = 70.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 19.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u6bx0")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 40.86
-path_postprocessing = 1
-avoidance_enabled = true
-radius = 68.64
-max_neighbors = 100
-debug_enabled = true
+path_desired_distance = 60.0
+target_desired_distance = 60.0
+path_max_distance = 20.0
+radius = 20.0
+max_neighbors = 20
+max_speed = 339.7
 
 [node name="Detection Range" type="Area2D" parent="."]
 collision_layer = 0

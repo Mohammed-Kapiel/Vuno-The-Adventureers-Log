@@ -8,7 +8,7 @@ class_name Unit extends CharacterBody2D
 
 @export var is_selected = false
 @onready var selection_overlay = $"Selection Overlay"
-@onready var navigation_agent = $NavigationAgent2D
+@onready var navigation_agent : NavigationAgent2D= $NavigationAgent2D
 
 @onready var unit_manager : Unit_Manager = UnitManager
 @onready var attack_manager : Attack_Manager = $"Attack Manager"
@@ -44,10 +44,11 @@ func _input(event):
 				navigation_agent.target_position = move_target
 
 func _physics_process(delta):
-		var direction : Vector2 = navigation_agent.get_next_path_position() - global_position
-		direction = direction.normalized()
+
 		is_following = navigation_agent.is_target_reached()
 		if !is_following:
+			var direction : Vector2 = navigation_agent.get_next_path_position() - global_position
+			direction = direction.normalized()
 			velocity = velocity.lerp(direction * stats.move_speed, stats.move_acceleration * delta)
 			move_and_slide()
 
@@ -55,8 +56,8 @@ func on_death(health_manager):
 	queue_free()
 
 func _on_detection_range_body_entered(body):
-	print(self.name + " detected " + body.name + " entered")
+	pass
 
 
 func _on_detection_range_body_exited(body):
-	print(self.name + " detected " + body.name + " exited")
+	pass
