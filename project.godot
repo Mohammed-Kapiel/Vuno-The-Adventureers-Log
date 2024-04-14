@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SpellManager="*res://Managers/Spell Manager/spell_manager.tscn"
+UnitManager="*res://Objects/Units/unit_manager.tscn"
+UnitSpawner="*res://Managers/Unit Spawner/unit_spawner.tscn"
 
 [input]
 

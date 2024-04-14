@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_56sgg")
+name = &"Fire Ball"
 mana_cost = 300.0
+is_unit_spawn = false

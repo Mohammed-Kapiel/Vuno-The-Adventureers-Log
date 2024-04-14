@@ -1,12 +1,16 @@
 class_name Unit extends CharacterBody2D
 
-@export var stats : Unit_Stats
+@export var stats : Unit_Stats:
+	set(new_val):
+		stats = new_val
+		update_stats()
 @export var is_selected = false
 @onready var selection_overlay = $"Selection Overlay"
 @onready var navigation_agent = $NavigationAgent2D
 
+@onready var unit_manager : Unit_Manager = UnitManager
 @onready var attack_manager : Attack_Manager = $"Attack Manager"
-@onready var health_manager : Health_Manager= $"Health Manager"
+@onready var health_manager : Health_Manager = $"Health Manager"
 
 @onready var detection_collision_shape = $"Detection Range/Detection Collision Shape"
 
@@ -14,13 +18,16 @@ var is_following : bool = false
 @export var move_target : Vector2
 
 func _ready():
-	attack_manager.setup_stats(stats)
-	health_manager.setup_stats(stats)
 	
-	detection_collision_shape.shape = CircleShape2D.new()
+	unit_manager.add_unit(self)
+	update_stats()
+
+func update_stats():
+	if attack_manager : attack_manager.setup_stats(stats)
+	if health_manager : health_manager.setup_stats(stats)
 	
-	detection_collision_shape.shape.radius = stats.detection_range
-	
+	if detection_collision_shape : detection_collision_shape.shape = CircleShape2D.new()
+	if detection_collision_shape : detection_collision_shape.shape.radius = stats.detection_range
 
 func select(is_true:bool = true):
 	is_selected = is_true

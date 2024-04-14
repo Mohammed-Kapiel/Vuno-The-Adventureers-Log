@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://brig5ceet5vng"]
+[gd_scene load_steps=6 format=3 uid="uid://brig5ceet5vng"]
 
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_y7mxt"]
 [ext_resource type="PackedScene" uid="uid://bagpxoy41hv8f" path="res://Managers/Spell Manager/spell_button.tscn" id="2_5dus5"]
 [ext_resource type="Script" path="res://Scenes/Scripts/mana_resource.gd" id="2_gvi4r"]
 [ext_resource type="Resource" uid="uid://bt6uh5c77ku41" path="res://Objects/Spells/fireBolt.tres" id="3_k8il2"]
 [ext_resource type="Resource" uid="uid://cd8sq6l4kxbuh" path="res://Objects/Spells/fireBall.tres" id="4_r2hbw"]
-[ext_resource type="Resource" uid="uid://ks1hq8w6otgh" path="res://Objects/Spells/summon_musketeer.tres" id="6_nq0in"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -67,7 +66,7 @@ spell_stats = ExtResource("4_r2hbw")
 
 [node name="Spell Button3" parent="MarginContainer2/VBoxContainer" instance=ExtResource("2_5dus5")]
 layout_mode = 2
-spell_stats = ExtResource("6_nq0in")
+spell_stats = ExtResource("4_r2hbw")
 
 [node name="Spell Button4" parent="MarginContainer2/VBoxContainer" instance=ExtResource("2_5dus5")]
 layout_mode = 2

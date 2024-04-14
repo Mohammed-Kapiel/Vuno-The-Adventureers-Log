@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_50b62")
+name = &"Fire Bolt"
 mana_cost = 100.0
+is_unit_spawn = false

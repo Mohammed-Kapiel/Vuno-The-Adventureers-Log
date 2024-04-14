@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://ks1hq8w6otgh"]
+
+[ext_resource type="Script" path="res://Objects/Spells/spell.gd" id="1_2lveg"]
+[ext_resource type="Resource" uid="uid://b4vcaiu3kq1ai" path="res://Objects/Units/Unit Stats/musketeer.tres" id="2_67bjl"]
+
+[resource]
+script = ExtResource("1_2lveg")
+name = &"Summon Musketeer"
+mana_cost = 100.0
+is_unit_spawn = true
+unit_stat = ExtResource("2_67bjl")

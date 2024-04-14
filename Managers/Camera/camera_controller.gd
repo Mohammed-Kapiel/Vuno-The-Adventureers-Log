@@ -1,6 +1,8 @@
 class_name  CameraController 
 extends CharacterBody2D
 
+@onready var unit_manager : Unit_Manager = UnitManager
+
 @onready var main_camera : Camera2D = $"Main Camera"
 
 @export var selection_area_rect : Control
@@ -27,6 +29,7 @@ signal start_move_selection
 signal area_selected(CameraController)
 
 func _ready():
+	area_selected.connect(unit_manager.on_area_selected.bind(self))
 	draw_area(false)
 
 func _input(event):
@@ -52,7 +55,6 @@ func get_movement_input():
 
 func get_slection_input():
 	if Input.is_action_just_pressed("select"):
-
 			mouse_start = mouse_pos_global
 			mouse_start_vector = mouse_pos
 			is_dragging = true
@@ -63,7 +65,7 @@ func get_slection_input():
 			mouse_end_vector = mouse_pos
 			is_dragging = false 
 			draw_area(false)
-			emit_signal("area_selected", self)
+			emit_signal("area_selected")
 		else:
 			mouse_end = mouse_start
 			is_dragging = false 
