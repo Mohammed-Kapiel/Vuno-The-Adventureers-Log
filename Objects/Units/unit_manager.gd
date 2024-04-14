@@ -1,7 +1,11 @@
 class_name Unit_Manager extends Node
 
-var units : Array[Unit]
+enum factions { Player = 0, Enemy = 1}
+
+var units = [[],[]]
 var selected_units : Array[Unit]
+
+const faction_colors = [Color("#009e11"), Color("#f30200")]
 
 #func _ready():
 	#var tmp = get_tree().get_nodes_in_group("Units")
@@ -11,9 +15,9 @@ var selected_units : Array[Unit]
 		#unit.tree_exiting.connect(func(): remove_unit(unit))
 		#
 
-func add_unit(unit_to_add: Unit):
-	units.append(unit_to_add)
-	unit_to_add.tree_exiting.connect(func(): remove_unit(unit_to_add))
+func add_unit(unit_to_add: Unit, faction : factions):
+	units[faction].append(unit_to_add)
+	unit_to_add.tree_exiting.connect(func(): remove_unit(unit_to_add, faction))
 
 func on_area_selected(camera_controller: CameraController):
 	var area = []
@@ -25,7 +29,7 @@ func _get_units_in_area(area):
 
 	selected_units.clear()
 	
-	for unit in units:
+	for unit in units[factions.Player]:
 		if (unit.position.x > area[0].x) and (unit.position.x < area[1].x):
 			if (unit.position.y > area[0].y) and (unit.position.y < area[1].y):
 				selected_units.append(unit)
@@ -35,5 +39,5 @@ func _get_units_in_area(area):
 		else:
 			unit.select(false)
 
-func remove_unit(unit_to_remove: Unit):
-	units.erase(unit_to_remove)
+func remove_unit(unit_to_remove: Unit, faction : factions):
+	units[faction].erase(unit_to_remove)

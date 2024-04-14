@@ -1,5 +1,6 @@
 class_name Attack_Manager extends Area2D
 
+var faction = Unit_Manager.factions.Player 
 @onready var attack_timer = $"Attack Timer"
 @onready var attack_collision_shape = $"Attack Collision Shape"
 
@@ -8,7 +9,9 @@ var damage : float
 @export var ignored : Array[Health_Manager]
 var targets_in_range : Array[Health_Manager]
 
-func setup_stats(stats:Unit_Stats):
+func setup_stats(faction, stats:Unit_Stats):
+	
+	self.faction = faction
 	damage = stats.damage
 	
 	attack_collision_shape.shape = CircleShape2D.new()
@@ -19,7 +22,7 @@ func setup_stats(stats:Unit_Stats):
 func _on_area_entered(area):
 	if area is Health_Manager:
 		var tmp = area as Health_Manager
-		if !ignored.has(tmp):
+		if tmp.faction != faction and !ignored.has(tmp) and !targets_in_range.has(tmp):
 			targets_in_range.append(tmp)
 			tmp.death.connect(_on_area_exited)
 			attack_timer.start()

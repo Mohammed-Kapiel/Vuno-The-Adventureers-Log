@@ -1,9 +1,11 @@
 class_name Unit extends CharacterBody2D
 
+@export var faction = unit_manager.factions.Player
 @export var stats : Unit_Stats:
 	set(new_val):
 		stats = new_val
 		update_stats()
+
 @export var is_selected = false
 @onready var selection_overlay = $"Selection Overlay"
 @onready var navigation_agent = $NavigationAgent2D
@@ -19,12 +21,12 @@ var is_following : bool = false
 
 func _ready():
 	
-	unit_manager.add_unit(self)
+	unit_manager.add_unit(self, faction)
 	update_stats()
 
 func update_stats():
-	if attack_manager : attack_manager.setup_stats(stats)
-	if health_manager : health_manager.setup_stats(stats)
+	if attack_manager : attack_manager.setup_stats(faction, stats)
+	if health_manager : health_manager.setup_stats(faction, stats)
 	
 	if detection_collision_shape : detection_collision_shape.shape = CircleShape2D.new()
 	if detection_collision_shape : detection_collision_shape.shape.radius = stats.detection_range

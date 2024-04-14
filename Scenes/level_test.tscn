@@ -20,17 +20,21 @@ selection_area_rect = NodePath("../HUD/Panel")
 
 [node name="Unit" parent="." instance=ExtResource("3_ow3gk")]
 position = Vector2(0, 602)
+faction = 1
 
 [node name="Unit2" parent="." instance=ExtResource("3_ow3gk")]
 position = Vector2(1295, 196)
+faction = 1
 stats = ExtResource("5_0sa4m")
 
 [node name="Unit3" parent="." instance=ExtResource("3_ow3gk")]
 position = Vector2(1462, 199)
+faction = 1
 stats = ExtResource("5_0sa4m")
 
 [node name="Unit4" parent="." instance=ExtResource("3_ow3gk")]
 position = Vector2(1100, 202)
+faction = 1
 stats = ExtResource("5_0sa4m")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]

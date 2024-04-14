@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqouh1r7475qg"]
+
+[ext_resource type="Script" path="res://Objects/Units/unit_manager.gd" id="1_f0uho"]
+
+[node name="Unit Manager" type="Node"]
+script = ExtResource("1_f0uho")
