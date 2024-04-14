@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Objects/Objectives/Objective Base/objective.gd" id="1_de4ql"]
 
-[node name="Objective" type="Node"]
+[node name="Objective" type="Node2D"]
 script = ExtResource("1_de4ql")

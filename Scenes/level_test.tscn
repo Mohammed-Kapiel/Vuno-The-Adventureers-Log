@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://do20j54t67i77"]
+[gd_scene load_steps=12 format=3 uid="uid://do20j54t67i77"]
 
 [ext_resource type="PackedScene" uid="uid://j1gdngxs0vdd" path="res://Managers/Camera/camera_controller.tscn" id="1_2xe5c"]
 [ext_resource type="Script" path="res://Screens/level.gd" id="1_nk3ma"]
 [ext_resource type="PackedScene" uid="uid://dah7adk31yfvi" path="res://Objects/Objectives/objective_manager.tscn" id="1_oyqmr"]
 [ext_resource type="PackedScene" uid="uid://b18rnqls1ctlv" path="res://Objects/Objectives/Objective Base/objective.tscn" id="2_6uo5k"]
 [ext_resource type="Script" path="res://Objects/Objectives/Objective Mana Threshold/objective_mana.gd" id="2_px541"]
+[ext_resource type="PackedScene" uid="uid://cuv2s1wq50ruf" path="res://Objects/Objectives/Objective Capture Area/objective_capture_area.tscn" id="3_vumng"]
 [ext_resource type="Resource" uid="uid://ck3k7qkfamsd7" path="res://Objects/Units/Unit Stats/squire.tres" id="5_0sa4m"]
 [ext_resource type="PackedScene" uid="uid://djt47cauubsbo" path="res://Managers/Unit Spawner/unit_spawner.tscn" id="6_cos1r"]
 [ext_resource type="TileSet" uid="uid://demx2xw1qeegu" path="res://Art Assets/main_tile_set.tres" id="8_4ebdh"]
@@ -20,6 +21,9 @@ script = ExtResource("1_nk3ma")
 hud_is_active = true
 
 [node name="Objective Manager" parent="." instance=ExtResource("1_oyqmr")]
+
+[node name="Objective Capture Area" parent="Objective Manager" instance=ExtResource("3_vumng")]
+position = Vector2(-208, -196)
 
 [node name="Objective" parent="Objective Manager" instance=ExtResource("2_6uo5k")]
 script = ExtResource("2_px541")

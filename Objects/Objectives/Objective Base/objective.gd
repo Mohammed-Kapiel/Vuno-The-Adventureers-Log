@@ -1,4 +1,4 @@
-class_name Objective extends Node
+class_name Objective extends Node2D
 
 @onready var popup = Hud.popup
 @onready var popup_label = Hud.popup_label

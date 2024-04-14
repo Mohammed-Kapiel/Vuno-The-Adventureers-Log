@@ -12,4 +12,4 @@ max_health = 100.0
 damage = 10.0
 attack_speed = 0.5
 attack_range = 40.0
-detection_range = 100.0
+detection_range = 200.0
