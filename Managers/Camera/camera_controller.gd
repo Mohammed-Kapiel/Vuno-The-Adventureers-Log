@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @onready var main_camera : Camera2D = $"Main Camera"
 
-@export var selection_area_rect : Control
+@onready var selection_area_rect : Control = Hud.panel
 @export var selection_dead_zone : float
 
 @export var speed = 300

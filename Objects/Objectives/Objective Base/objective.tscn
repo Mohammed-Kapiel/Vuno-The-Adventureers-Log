@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b18rnqls1ctlv"]
+
+[ext_resource type="Script" path="res://Objects/Objectives/Objective Base/objective.gd" id="1_de4ql"]
+
+[node name="Objective" type="Node"]
+script = ExtResource("1_de4ql")

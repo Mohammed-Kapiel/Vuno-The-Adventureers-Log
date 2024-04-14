@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://brig5ceet5vng"]
+[gd_scene load_steps=8 format=3 uid="uid://brig5ceet5vng"]
 
+[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_nan5g"]
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_y7mxt"]
 [ext_resource type="PackedScene" uid="uid://bagpxoy41hv8f" path="res://Managers/Spell Manager/spell_button.tscn" id="2_5dus5"]
 [ext_resource type="Script" path="res://Scenes/Scripts/mana_resource.gd" id="2_gvi4r"]
@@ -8,10 +9,22 @@
 [ext_resource type="Resource" uid="uid://ks1hq8w6otgh" path="res://Objects/Spells/summon_musketeer.tres" id="6_nq0in"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_nan5g")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 100.0
 offset_bottom = 100.0
+
+[node name="Popup" type="Popup" parent="."]
+title = "Test"
+initial_position = 2
+size = Vector2i(141, 100)
+borderless = false
+
+[node name="Popup_Label" type="Label" parent="Popup"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "This is a test Label"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 50)
