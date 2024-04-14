@@ -13,6 +13,7 @@ class_name Unit extends CharacterBody2D
 @onready var unit_manager : Unit_Manager = UnitManager
 @onready var attack_manager : Attack_Manager = $"Attack Manager"
 @onready var health_manager : Health_Manager = $"Health Manager"
+@onready var art : Sprite2D = $Art
 
 @onready var detection_collision_shape = $"Detection Range/Detection Collision Shape"
 
@@ -20,11 +21,12 @@ var is_following : bool = false
 @export var move_target : Vector2
 
 func _ready():
-	
 	unit_manager.add_unit(self, faction)
 	update_stats()
 
 func update_stats():
+	if art : art.texture = stats.texture
+	
 	if attack_manager : attack_manager.setup_stats(faction, stats)
 	if health_manager : health_manager.setup_stats(faction, stats)
 	

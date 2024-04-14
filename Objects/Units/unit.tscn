@@ -24,6 +24,8 @@ radius = 23.65
 [node name="Unit" type="CharacterBody2D" groups=["Units"]]
 script = ExtResource("1_lthus")
 stats = ExtResource("2_7hurq")
+is_selected = null
+move_target = null
 
 [node name="Art" type="Sprite2D" parent="."]
 texture = ExtResource("2_qior7")

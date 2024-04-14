@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dah7adk31yfvi" path="res://Objects/Objectives/objective_manager.tscn" id="1_oyqmr"]
 [ext_resource type="PackedScene" uid="uid://b18rnqls1ctlv" path="res://Objects/Objectives/Objective Base/objective.tscn" id="2_6uo5k"]
 [ext_resource type="Script" path="res://Objects/Objectives/Objective Mana Threshold/objective_mana.gd" id="2_px541"]
-[ext_resource type="PackedScene" uid="uid://nu7um6h5hlo0" path="res://Objects/Units/unit.tscn" id="3_ow3gk"]
 [ext_resource type="Resource" uid="uid://ck3k7qkfamsd7" path="res://Objects/Units/Unit Stats/squire.tres" id="5_0sa4m"]
+[ext_resource type="PackedScene" uid="uid://djt47cauubsbo" path="res://Managers/Unit Spawner/unit_spawner.tscn" id="6_cos1r"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gn267"]
 vertices = PackedVector2Array(516, 338, 569, 1273, -398, 1242, -406, -271, 1680, -280, 1678, 831, 968, 801, 734, 78, 722, 76)
@@ -34,24 +34,11 @@ mana_threshold = 100
 
 [node name="Camera Controller" parent="." instance=ExtResource("1_2xe5c")]
 
-[node name="Unit" parent="." instance=ExtResource("3_ow3gk")]
-position = Vector2(0, 602)
-faction = 1
-
-[node name="Unit2" parent="." instance=ExtResource("3_ow3gk")]
-position = Vector2(1295, 196)
-faction = 1
-stats = ExtResource("5_0sa4m")
-
-[node name="Unit3" parent="." instance=ExtResource("3_ow3gk")]
-position = Vector2(1462, 199)
-faction = 1
-stats = ExtResource("5_0sa4m")
-
-[node name="Unit4" parent="." instance=ExtResource("3_ow3gk")]
-position = Vector2(1100, 202)
-faction = 1
-stats = ExtResource("5_0sa4m")
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_gn267")
+
+[node name="Unit Spawner" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(-132, -107)
+is_automatic = true
+faction = 1
+unit_stats = ExtResource("5_0sa4m")
