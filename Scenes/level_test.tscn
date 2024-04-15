@@ -41,94 +41,6 @@ position = Vector2(453, -4035)
 position = Vector2(-413, 3606)
 speed = 3000
 
-[node name="Unit Spawner" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(183, 3854)
-is_automatic = true
-spawn_rate = 1.0
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("6_t1607")
-
-[node name="Unit Spawner2" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(-893, 2767)
-is_automatic = true
-spawn_rate = 1.0
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("6_t1607")
-
-[node name="Unit Spawner3" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(418, 2035)
-is_automatic = true
-spawn_rate = 0.25
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("6_t1607")
-
-[node name="Unit Spawner4" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(570, 610)
-is_automatic = true
-spawn_rate = 0.1
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("6_t1607")
-
-[node name="Unit Spawner5" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(483, 743)
-is_automatic = true
-spawn_rate = 0.1
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("7_rsv1q")
-
-[node name="Unit Spawner6" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(526, -912)
-is_automatic = true
-spawn_rate = 0.1
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("7_rsv1q")
-
-[node name="Unit Spawner7" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(493, -754)
-is_automatic = true
-spawn_rate = 0.1
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("7_rsv1q")
-
-[node name="Unit Spawner8" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(457, -1770)
-is_automatic = true
-spawn_rate = 0.1
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("8_h0jx1")
-
-[node name="Unit Spawner9" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(457, -1966)
-is_automatic = true
-spawn_rate = 0.1
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("6_t1607")
-
-[node name="Unit Spawner10" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(305, -1861)
-is_automatic = true
-spawn_rate = 0.1
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("7_rsv1q")
-
-[node name="Unit Spawner11" parent="." instance=ExtResource("6_cos1r")]
-position = Vector2(454, -4032)
-is_automatic = true
-spawn_rate = 0.1
-max_spawned = 5
-faction = 1
-unit_stats = ExtResource("8_h0jx1")
-
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
 tile_set = ExtResource("8_4ebdh")
@@ -166,7 +78,74 @@ shape = SubResource("RectangleShape2D_iwo2o")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Level Bounds"]
 position = Vector2(-6681, 0)
+collision_layer = 512
+collision_mask = 512
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Level Bounds/StaticBody2D4"]
 position = Vector2(10237, -817)
 shape = SubResource("RectangleShape2D_iwo2o")
+
+[node name="Unit Spawner" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(183, 3854)
+is_automatic = true
+spawn_rate = 1.0
+unit_stats = ExtResource("6_t1607")
+
+[node name="Unit Spawner2" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(-893, 2767)
+is_automatic = true
+spawn_rate = 1.0
+unit_stats = ExtResource("6_t1607")
+
+[node name="Unit Spawner3" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(418, 2035)
+is_automatic = true
+unit_stats = ExtResource("6_t1607")
+
+[node name="Unit Spawner4" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(570, 610)
+is_automatic = true
+spawn_rate = 0.1
+unit_stats = ExtResource("6_t1607")
+
+[node name="Unit Spawner5" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(483, 743)
+is_automatic = true
+spawn_rate = 0.1
+unit_stats = ExtResource("7_rsv1q")
+
+[node name="Unit Spawner6" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(526, -912)
+is_automatic = true
+spawn_rate = 0.1
+unit_stats = ExtResource("7_rsv1q")
+
+[node name="Unit Spawner7" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(493, -754)
+is_automatic = true
+spawn_rate = 0.1
+unit_stats = ExtResource("7_rsv1q")
+
+[node name="Unit Spawner8" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(457, -1770)
+is_automatic = true
+spawn_rate = 0.1
+unit_stats = ExtResource("8_h0jx1")
+
+[node name="Unit Spawner9" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(457, -1966)
+is_automatic = true
+spawn_rate = 0.1
+unit_stats = ExtResource("6_t1607")
+
+[node name="Unit Spawner10" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(305, -1861)
+is_automatic = true
+spawn_rate = 0.1
+unit_stats = ExtResource("7_rsv1q")
+
+[node name="Unit Spawner11" parent="." instance=ExtResource("6_cos1r")]
+position = Vector2(454, -4032)
+is_automatic = true
+spawn_rate = 0.1
+unit_stats = ExtResource("8_h0jx1")
