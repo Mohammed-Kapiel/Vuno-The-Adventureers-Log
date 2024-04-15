@@ -14,7 +14,7 @@ func setup_stats(new_faction, stats:Unit_Stats):
 	
 	health_bar.modulate = Unit_Manager.faction_colors[faction]
 	
-	max_health = stats.max_health
+	if stats: max_health = stats.max_health
 	health = max_health
 
 func _ready():

@@ -21,17 +21,21 @@ var is_following : bool = false
 @export var move_target : Vector2
 
 func _ready():
+	setup()
+
+func setup():
 	unit_manager.add_unit(self, faction)
 	update_stats()
-
+	
 func update_stats():
-	if art : art.texture = stats.texture
+	if stats : art.texture = stats.texture
 	
 	if attack_manager : attack_manager.setup_stats(faction, stats)
 	if health_manager : health_manager.setup_stats(faction, stats)
 	
-	if detection_collision_shape : detection_collision_shape.shape = CircleShape2D.new()
-	if detection_collision_shape : detection_collision_shape.shape.radius = stats.detection_range
+	if detection_collision_shape : 
+		detection_collision_shape.shape = CircleShape2D.new()
+		if stats : detection_collision_shape.shape.radius = stats.detection_range
 
 func select(is_true:bool = true):
 	is_selected = is_true

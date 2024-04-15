@@ -46,11 +46,11 @@ func _spawn(spawn_position : Vector2):
 	if is_automatic and spawned > max_spawned:
 		return
 	var unit = UNIT.instantiate()
+	level.add_child(unit)	
 	unit.faction = faction
 	unit.stats = unit_stats
-	
-	level.add_child(unit)
 	unit.position = spawn_position
+
 
 func _physics_process(_delta):
 	if is_automatic or !is_spawning:

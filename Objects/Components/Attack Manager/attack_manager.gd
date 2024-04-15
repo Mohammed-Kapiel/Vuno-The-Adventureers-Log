@@ -12,12 +12,12 @@ var targets_in_range : Array[Health_Manager]
 func setup_stats(new_faction, stats:Unit_Stats):
 	
 	faction = new_faction
-	damage = stats.damage
+	if stats :damage = stats.damage
 	
 	attack_collision_shape.shape = CircleShape2D.new()
-	attack_collision_shape.shape.radius = stats.attack_range
+	if stats : attack_collision_shape.shape.radius = stats.attack_range
 	
-	attack_timer.wait_time = 1/stats.attack_speed
+	if stats : attack_timer.wait_time = 1/stats.attack_speed
 
 func _on_area_entered(area):
 	if area is Health_Manager:
