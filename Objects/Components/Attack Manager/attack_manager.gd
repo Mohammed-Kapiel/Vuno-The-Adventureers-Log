@@ -9,9 +9,9 @@ var damage : float
 @export var ignored : Array[Health_Manager]
 var targets_in_range : Array[Health_Manager]
 
-func setup_stats(faction, stats:Unit_Stats):
+func setup_stats(new_faction, stats:Unit_Stats):
 	
-	self.faction = faction
+	faction = new_faction
 	damage = stats.damage
 	
 	attack_collision_shape.shape = CircleShape2D.new()
@@ -28,6 +28,7 @@ func _on_area_entered(area):
 			attack_timer.start()
 
 func _on_area_exited(area):
+	print(area)
 	targets_in_range.erase(area)
 	#area.death.disconnect(_on_area_exited)
 	if targets_in_range.size() == 0:

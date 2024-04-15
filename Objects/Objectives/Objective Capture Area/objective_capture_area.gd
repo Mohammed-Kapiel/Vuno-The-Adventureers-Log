@@ -1,6 +1,6 @@
 extends Objective
 
-@onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var collision_shape_2d = $"Objective Area/CollisionShape2D"
 @onready var timer : Timer = $Timer
 
 var is_checking = false
@@ -11,7 +11,7 @@ func start():
 	popup.visible = true
 	
 
-func process_check(delta) -> bool:
+func process_check(_delta) -> bool:
 	var is_captured = true
 	for unit in units_in_area:
 		if unit and unit.faction != Unit_Manager.factions.Player:
@@ -34,11 +34,14 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body):
 		if body is Unit:
 			units_in_area.append(body)
-			body.health_manager.death.connect(func(): _on_area_2d_body_exited(body))
+			body.health_manager.death.connect(_unit_dead)
+
+func _unit_dead(dead_health_manager):
+	if dead_health_manager is Health_Manager:
+		remove_from_list(dead_health_manager.get_parent())
 
 func _on_area_2d_body_exited(body):
-	if body is Unit:
-		remove_from_list(body)
+	remove_from_list(body)
 
 func _draw():
 	# Calculate the arc parameters.

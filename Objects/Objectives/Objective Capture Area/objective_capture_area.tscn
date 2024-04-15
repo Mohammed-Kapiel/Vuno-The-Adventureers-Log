@@ -8,13 +8,11 @@ radius = 100.0
 [node name="Objective Capture Area" type="Node2D"]
 script = ExtResource("1_x7ahw")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Objective Area" type="Area2D" parent="."]
 light_mask = 3
 visibility_layer = 3
-collision_layer = 3
-collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objective Area"]
 light_mask = 3
 visibility_layer = 3
 shape = SubResource("CircleShape2D_xqmy8")
@@ -24,6 +22,6 @@ debug_color = Color(0.913725, 0.423529, 0, 0.419608)
 wait_time = 2.0
 one_shot = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Objective Area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Objective Area" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

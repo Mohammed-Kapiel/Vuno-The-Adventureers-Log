@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bagpxoy41hv8f"]
+[gd_scene load_steps=3 format=3 uid="uid://bagpxoy41hv8f"]
 
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_rnfef"]
 [ext_resource type="Script" path="res://Managers/Spell Manager/spell_button.gd" id="2_pwsc8"]
-[ext_resource type="Resource" uid="uid://dfrj5s5jy20vc" path="res://Objects/Spells/Summons/summon_machine.tres" id="3_tvihs"]
 
-[node name="Spell Button" type="Button"]
+[node name="Spell Button" type="Button" groups=["SpellButtons"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,6 +16,5 @@ icon = ExtResource("1_rnfef")
 alignment = 2
 expand_icon = true
 script = ExtResource("2_pwsc8")
-spell_stats = ExtResource("3_tvihs")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

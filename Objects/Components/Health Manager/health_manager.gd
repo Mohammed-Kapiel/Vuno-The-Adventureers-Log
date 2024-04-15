@@ -9,8 +9,8 @@ var faction = Unit_Manager.factions.Player
 var health : float = 100
 var max_health : float = 100
 
-func setup_stats(faction, stats:Unit_Stats):
-	self.faction = faction
+func setup_stats(new_faction, stats:Unit_Stats):
+	faction = new_faction
 	
 	health_bar.modulate = Unit_Manager.faction_colors[faction]
 	

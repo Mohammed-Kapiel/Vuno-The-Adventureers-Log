@@ -52,12 +52,12 @@ func _physics_process(delta):
 			velocity = velocity.lerp(direction * stats.move_speed, stats.move_acceleration * delta)
 			move_and_slide()
 
-func on_death(health_manager):
+func on_death(_health_manager_passthrough):
 	queue_free()
 
-func _on_detection_range_body_entered(body):
-	pass
-
-
-func _on_detection_range_body_exited(body):
-	pass
+#func _on_detection_range_body_entered(body):
+	#pass
+#
+#
+#func _on_detection_range_body_exited(body):
+	#pass

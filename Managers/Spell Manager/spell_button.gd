@@ -1,11 +1,11 @@
-extends Button
+class_name Spell_Button extends Button
 
 @onready var unit_manager : Unit_Manager = UnitManager
 
 var unit_spawner : Unit_Spawner
 @export var spell_stats : Spell
 
-func _ready():
+func get_data():
 	#unit_spawner = unit_manager.spawners[unit_manager.factions.Player].front()
 	
 	if spell_stats.unit_stat : 

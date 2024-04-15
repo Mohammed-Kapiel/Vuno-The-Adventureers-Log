@@ -12,7 +12,7 @@ func _process(delta):
 	if process_check(delta):
 		end()
 
-func process_check(delta) -> bool:
+func process_check(_delta) -> bool:
 	return false
 
 func end():
