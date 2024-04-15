@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://brig5ceet5vng"]
+[gd_scene load_steps=14 format=3 uid="uid://brig5ceet5vng"]
 
 [ext_resource type="Script" path="res://Scenes/hud.gd" id="1_nan5g"]
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_y7mxt"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dtjl2pvchapxu" path="res://Screens/base_button.tscn" id="4_crhiu"]
 [ext_resource type="PackedScene" uid="uid://cynngi4n55d55" path="res://Managers/Scene Manager/menu_toggle_utility.tscn" id="5_pnktq"]
 [ext_resource type="Resource" uid="uid://da5a6mmjabchu" path="res://Objects/Spells/Summons/summon_angel.tres" id="7_4bspt"]
+[ext_resource type="Resource" uid="uid://dfrj5s5jy20vc" path="res://Objects/Spells/Summons/summon_machine.tres" id="7_jscng"]
 [ext_resource type="Resource" uid="uid://cjvml6n46dbn5" path="res://Objects/Spells/Summons/summon_cannon.tres" id="8_lqhuu"]
+[ext_resource type="PackedScene" uid="uid://oxhl8m0jpeyx" path="res://Screens/Pause Menu/pause_menu.tscn" id="11_0y8t2"]
 [ext_resource type="PackedScene" uid="uid://d4nnsst11o7df" path="res://Screens/Pause Menu/win_menu.tscn" id="11_ejym0"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_j6l0i"]
@@ -90,11 +92,13 @@ text = "Summons"
 menu_scene = NodePath("../../VBoxContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer2"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Spell Button" parent="MarginContainer2/VBoxContainer2/VBoxContainer" instance=ExtResource("2_5dus5")]
 layout_mode = 2
+spell_stats = ExtResource("7_jscng")
 
 [node name="Spell Button2" parent="MarginContainer2/VBoxContainer2/VBoxContainer" instance=ExtResource("2_5dus5")]
 layout_mode = 2
@@ -103,6 +107,9 @@ spell_stats = ExtResource("8_lqhuu")
 [node name="Spell Button3" parent="MarginContainer2/VBoxContainer2/VBoxContainer" instance=ExtResource("2_5dus5")]
 layout_mode = 2
 spell_stats = ExtResource("7_4bspt")
+
+[node name="Pause Menu" parent="." instance=ExtResource("11_0y8t2")]
+visible = false
 
 [node name="Settings Button2" parent="." instance=ExtResource("4_crhiu")]
 z_index = 1
@@ -120,7 +127,8 @@ toggle_mode = true
 shortcut = SubResource("Shortcut_2541o")
 text = "="
 
-[node name="Settings Menu Toggle Utility" parent="Settings Button2" instance=ExtResource("5_pnktq")]
+[node name="Settings Menu Toggle Utility" parent="Settings Button2" node_paths=PackedStringArray("menu_scene") instance=ExtResource("5_pnktq")]
+menu_scene = NodePath("../../Pause Menu")
 
 [node name="Win Menu" parent="." instance=ExtResource("11_ejym0")]
 visible = false

@@ -28,7 +28,6 @@ func _on_area_entered(area):
 			attack_timer.start()
 
 func _on_area_exited(area):
-	print(area)
 	targets_in_range.erase(area)
 	#area.death.disconnect(_on_area_exited)
 	if targets_in_range.size() == 0:

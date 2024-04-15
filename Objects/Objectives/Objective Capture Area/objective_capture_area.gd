@@ -10,6 +10,8 @@ func start():
 	popup_label.text = "Capture the Cemetary!"
 	popup.visible = true
 	
+	visible = true
+	
 
 func process_check(_delta) -> bool:
 	var is_captured = true

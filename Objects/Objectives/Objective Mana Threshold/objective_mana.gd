@@ -9,6 +9,5 @@ func start():
 	SpellManager.mana_changed.connect(mana_check)
 
 func mana_check(new_value:float):
-	print("test")
 	if new_value <= mana_threshold:
 		end()
