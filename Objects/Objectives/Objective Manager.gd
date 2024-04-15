@@ -20,6 +20,6 @@ func end_objective():
 	
 	if level_objectives.size() == 0:
 		win_game.emit()
-		print("Game Won")
+		Hud.win_menu.visible = true
 	else:
 		start_objective(level_objectives.front() as Objective)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Unit_Stats" load_steps=3 format=3 uid="uid://jmfbjt1vavdu"]
+
+[ext_resource type="Script" path="res://Objects/Units/Unit Stats/unit_stats.gd" id="1_bgngv"]
+[ext_resource type="Texture2D" uid="uid://jgt4s2cbkfvv" path="res://Art Assets/Aesprite Files/Unit_Big_Cannon.png" id="2_djamv"]
+
+[resource]
+script = ExtResource("1_bgngv")
+texture = ExtResource("2_djamv")
+mana_cost = 100.0
+move_acceleration = 10.0
+move_speed = 50.0
+max_health = 10.0
+damage = 100.0
+attack_speed = 4.0
+attack_range = 200.0
+detection_range = 200.0

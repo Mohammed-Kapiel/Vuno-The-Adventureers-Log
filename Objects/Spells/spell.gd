@@ -9,3 +9,7 @@ class_name Spell extends Resource
 #@export var casting_effect : Object
 
 #@export var cast_effect : Object
+
+func _to_string():
+	if unit_stat:
+		return unit_stat.to_string()

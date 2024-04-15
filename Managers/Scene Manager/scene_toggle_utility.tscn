@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnucfg0fm6q5p"]
+[gd_scene load_steps=2 format=3 uid="uid://mdjx1qkxs8g7"]
 
 [ext_resource type="Script" path="res://Managers/Scene Manager/scene_toggle_utility.gd" id="1_thycy"]
 

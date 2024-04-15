@@ -6,9 +6,14 @@ var unit_spawner : Unit_Spawner
 @export var spell_stats : Spell
 
 func _ready():
-	unit_spawner = unit_manager.spawners[unit_manager.factions.Player].front()
+	#unit_spawner = unit_manager.spawners[unit_manager.factions.Player].front()
 	
-	if spell_stats : text = spell_stats.name
+	if spell_stats.unit_stat : 
+		text = spell_stats.name
+		tooltip_text = str(spell_stats)
+		icon = spell_stats.unit_stat.texture
+	else:
+		queue_free()
 
 func _on_pressed():
 	SpellManager.mana -= spell_stats.mana_cost

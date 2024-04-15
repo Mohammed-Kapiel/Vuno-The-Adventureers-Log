@@ -1,13 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtjl2pvchapxu"]
+[gd_scene load_steps=6 format=3 uid="uid://dtjl2pvchapxu"]
 
 [ext_resource type="FontFile" uid="uid://wcnotdxb1bov" path="res://Art Assets/Fonts/return-of-ganon/retganon.ttf" id="1_4cypc"]
 [ext_resource type="Script" path="res://Screens/base_button.gd" id="1_h722u"]
 [ext_resource type="AudioStream" uid="uid://onwvty8w3iqo" path="res://Sound Assets/SFX/mathewhenry__guitar-string-plucked-at-headstock.mp3" id="2_dd1sh"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deywb"]
+bg_color = Color(0.607843, 0.678431, 0.717647, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.411765, 0.415686, 0.415686, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Theme" id="Theme_eqsww"]
+/colors/BakcGround = Color(0, 0, 0.180392, 1)
+/colors/BtnBack = Color(0, 0, 0, 1)
+/colors/Font = Color(0.607843, 0.678431, 0.717647, 1)
+Button/colors/font_color = Color(0, 0, 0.180392, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_4cypc")
+Button/styles/normal = SubResource("StyleBoxFlat_deywb")
+
 [node name="Button" type="Button"]
-offset_left = -2.0
-offset_right = 78.0
-offset_bottom = 52.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eqsww")
 theme_override_fonts/font = ExtResource("1_4cypc")
 theme_override_font_sizes/font_size = 32
 text = "TEST"

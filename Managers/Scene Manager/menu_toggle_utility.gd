@@ -3,6 +3,7 @@ extends Node
 @export var menu_scene : Node
 
 func _on_toggle_menu_requested(on:bool ):
+	print("Ah")
 	if menu_scene:
 		menu_scene.visible = on
 

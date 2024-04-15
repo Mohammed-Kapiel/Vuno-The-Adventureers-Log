@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Unit_Stats" load_steps=3 format=3 uid="uid://cp7qxr4vgngte"]
+
+[ext_resource type="Script" path="res://Objects/Units/Unit Stats/unit_stats.gd" id="1_6mgu7"]
+[ext_resource type="Texture2D" uid="uid://diqfdk365eid3" path="res://Art Assets/Aesprite Files/Unit_Hydra.png" id="2_qhu8b"]
+
+[resource]
+script = ExtResource("1_6mgu7")
+texture = ExtResource("2_qhu8b")
+mana_cost = 100.0
+move_acceleration = 50.0
+move_speed = 100.0
+max_health = 150.0
+damage = 50.0
+attack_speed = 0.667
+attack_range = 75.0
+detection_range = 200.0

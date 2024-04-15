@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Unit_Stats" load_steps=3 format=3 uid="uid://y04tbiqlrw74"]
+
+[ext_resource type="Script" path="res://Objects/Units/Unit Stats/unit_stats.gd" id="1_3f5wb"]
+[ext_resource type="Texture2D" uid="uid://5aolgqkbqfnb" path="res://Art Assets/Aesprite Files/Unit_Mecha.png" id="2_jdbpb"]
+
+[resource]
+script = ExtResource("1_3f5wb")
+texture = ExtResource("2_jdbpb")
+mana_cost = 100.0
+move_acceleration = 10.0
+move_speed = 50.0
+max_health = 10.0
+damage = 10.0
+attack_speed = 1.0
+attack_range = 50.0
+detection_range = 200.0

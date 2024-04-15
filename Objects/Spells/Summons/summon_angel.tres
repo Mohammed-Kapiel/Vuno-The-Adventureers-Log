@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://da5a6mmjabchu"]
+
+[ext_resource type="Script" path="res://Objects/Spells/spell.gd" id="1_ir0mb"]
+[ext_resource type="Resource" uid="uid://c6q4hn784ort8" path="res://Objects/Units/Unit Stats/Player/angel.tres" id="2_f7jgy"]
+
+[resource]
+script = ExtResource("1_ir0mb")
+name = &"Angel"
+mana_cost = 0.0
+is_unit_spawn = true
+unit_stat = ExtResource("2_f7jgy")

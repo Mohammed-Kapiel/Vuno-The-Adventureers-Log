@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://cjvml6n46dbn5"]
+
+[ext_resource type="Script" path="res://Objects/Spells/spell.gd" id="1_f530l"]
+[ext_resource type="Resource" uid="uid://y04tbiqlrw74" path="res://Objects/Units/Unit Stats/Player/machine.tres" id="2_q4372"]
+
+[resource]
+script = ExtResource("1_f530l")
+name = &"Automaton"
+mana_cost = 0.0
+is_unit_spawn = true
+unit_stat = ExtResource("2_q4372")
