@@ -8,9 +8,10 @@ extends CharacterBody2D
 @onready var selection_area_rect : Control = Hud.panel
 @export var selection_dead_zone : float
 
-@export var speed = 300
+@export var speed = 150
 @export var zoom_speed: float = 5
 var zoom_dir: float
+var current_zoom_amount: float = 1
 
 @export var moveable_bounds : Rect2
 @export var is_in_focus = true
@@ -51,7 +52,8 @@ func get_input(delta):
 
 func get_movement_input():
 	var input_dir = Input.get_vector("move_camera_left", "move_camera_right", "move_camera_up", "move_camera_down")
-	velocity = input_dir * speed
+	print(1/current_zoom_amount)
+	velocity = input_dir * speed * abs(1/current_zoom_amount)
 
 func get_slection_input():
 	if Input.is_action_just_pressed("select"):
@@ -77,8 +79,9 @@ func get_slection_input():
 		draw_area(true)
 
 func get_zoom_input(delta):
-	var zoom_amount: float = zoom_dir * zoom_speed * delta
+	var zoom_amount: float  = zoom_dir * zoom_speed * delta
 	main_camera.zoom += Vector2(zoom_amount, zoom_amount)
+	current_zoom_amount = main_camera.zoom.x
 	zoom_dir = 0
 
 func _physics_process(delta):

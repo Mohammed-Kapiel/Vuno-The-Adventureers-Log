@@ -17,6 +17,14 @@ const faction_colors = [Color("#009e11"), Color("#f30200")]
 		#unit.tree_exiting.connect(func(): remove_unit(unit))
 		#
 
+func activate(is_active : bool):
+	if !is_active:
+		units.clear()
+		units = [[],[]]
+		selected_units.clear()
+		spawners.clear()
+		spawners = [[],[]]
+
 func add_spawner(spawner_to_add: Unit_Spawner, faction : factions):
 	spawners[faction].append(spawner_to_add)
 

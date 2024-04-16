@@ -4,3 +4,5 @@ extends Node
 
 func _ready():
 	Hud.activate(hud_is_active)
+	UnitManager.activate(hud_is_active)
+	SpellManager.activate(hud_is_active)

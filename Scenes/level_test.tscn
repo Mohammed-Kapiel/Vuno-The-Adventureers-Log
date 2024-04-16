@@ -20,26 +20,26 @@ size = Vector2(20, 15000)
 script = ExtResource("1_nk3ma")
 hud_is_active = true
 
+[node name="Objective Capture Area2" parent="." instance=ExtResource("3_vumng")]
+position = Vector2(458, 2114)
+
+[node name="Objective Capture Area3" parent="." instance=ExtResource("3_vumng")]
+position = Vector2(561, 197)
+
+[node name="Objective Capture Area4" parent="." instance=ExtResource("3_vumng")]
+position = Vector2(425, -1842)
+
+[node name="Objective Capture Area5" parent="." instance=ExtResource("3_vumng")]
+position = Vector2(453, -4035)
+
 [node name="Objective Manager" parent="." instance=ExtResource("1_oyqmr")]
 
 [node name="Objective Capture Area" parent="Objective Manager" instance=ExtResource("3_vumng")]
 position = Vector2(186, 3790)
 
-[node name="Objective Capture Area2" parent="Objective Manager" instance=ExtResource("3_vumng")]
-position = Vector2(458, 2114)
-
-[node name="Objective Capture Area3" parent="Objective Manager" instance=ExtResource("3_vumng")]
-position = Vector2(561, 197)
-
-[node name="Objective Capture Area4" parent="Objective Manager" instance=ExtResource("3_vumng")]
-position = Vector2(425, -1842)
-
-[node name="Objective Capture Area5" parent="Objective Manager" instance=ExtResource("3_vumng")]
-position = Vector2(453, -4035)
-
 [node name="Camera Controller" parent="." instance=ExtResource("1_2xe5c")]
 position = Vector2(-413, 3606)
-speed = 3000
+speed = 600
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)

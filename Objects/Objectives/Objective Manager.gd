@@ -4,6 +4,7 @@ var level_objectives : Array[Node]
 
 signal win_game
 
+
 func _ready():
 	level_objectives = get_children()
 	start_objective(level_objectives.front() as Objective)

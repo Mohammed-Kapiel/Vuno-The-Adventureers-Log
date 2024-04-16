@@ -11,3 +11,4 @@ func activate(is_active : bool):
 	if is_active:
 		for child in v_box_container.get_children():
 			(child as Spell_Button).get_data()
+		win_menu.visible = false

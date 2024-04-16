@@ -24,18 +24,21 @@ func _ready():
 	setup()
 
 func setup():
-	unit_manager.add_unit(self, faction)
 	update_stats()
 	
 func update_stats():
-	if stats : art.texture = stats.texture
+	if !stats :
+		return 
 	
-	if attack_manager : attack_manager.setup_stats(faction, stats)
-	if health_manager : health_manager.setup_stats(faction, stats)
+	art.texture = stats.texture
+	attack_manager.setup_stats(faction, stats)
+	health_manager.setup_stats(faction, stats)
 	
 	if detection_collision_shape : 
 		detection_collision_shape.shape = CircleShape2D.new()
-		if stats : detection_collision_shape.shape.radius = stats.detection_range
+		detection_collision_shape.shape.radius = stats.detection_range
+	
+	unit_manager.add_unit(self, faction)
 
 func select(is_true:bool = true):
 	is_selected = is_true
