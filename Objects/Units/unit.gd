@@ -8,12 +8,15 @@ class_name Unit extends CharacterBody2D
 
 @export var is_selected = false
 @onready var selection_overlay = $"Selection Overlay"
+@onready var attack_range_draw = $"Attack Range Draw"
+
 @onready var navigation_agent : NavigationAgent2D= $NavigationAgent2D
 
 @onready var unit_manager : Unit_Manager = UnitManager
 @onready var attack_manager : Attack_Manager = $"Attack Manager"
 @onready var health_manager : Health_Manager = $"Health Manager"
 @onready var art : Sprite2D = $Art
+@onready var collision_shape_2d = $CollisionShape2D
 
 @onready var detection_collision_shape = $"Detection Range/Detection Collision Shape"
 
@@ -30,6 +33,14 @@ func update_stats():
 	if !stats :
 		return 
 	
+	attack_range_draw.color = collision_shape_2d.debug_color
+	attack_range_draw.attack_range = stats.attack_range
+	
+	health_manager.scale = stats.scale
+	art.scale = stats.scale
+	selection_overlay.scale = stats.scale
+	collision_shape_2d.scale = stats.scale
+	
 	art.texture = stats.texture
 	attack_manager.setup_stats(faction, stats)
 	health_manager.setup_stats(faction, stats)
@@ -42,7 +53,10 @@ func update_stats():
 
 func select(is_true:bool = true):
 	is_selected = is_true
+
 	selection_overlay.visible = is_selected
+	attack_range_draw.visible = is_selected
+	attack_manager.show_attack_timer = is_selected
 
 func _input(event):
 		if event.is_action("move"):
@@ -62,9 +76,4 @@ func _physics_process(delta):
 func on_death(_health_manager_passthrough):
 	queue_free()
 
-#func _on_detection_range_body_entered(body):
-	#pass
-#
-#
-#func _on_detection_range_body_exited(body):
-	#pass
+

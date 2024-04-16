@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Unit_Stats" load_steps=3 format=3 uid="uid://dr2ydqpmocmcf"]
 
 [ext_resource type="Script" path="res://Objects/Units/Unit Stats/unit_stats.gd" id="1_g43dc"]
-[ext_resource type="Texture2D" uid="uid://bd3ht7ods7bjl" path="res://Art Assets/Aesprite Files/Unit_Dragonborne_Shield.png" id="2_mvoj7"]
+[ext_resource type="Texture2D" uid="uid://hnqj1f1ijdll" path="res://Art Assets/Aesprite Files/Unit_Drake.png" id="2_jm3em"]
 
 [resource]
 script = ExtResource("1_g43dc")
-texture = ExtResource("2_mvoj7")
+texture = ExtResource("2_jm3em")
 mana_cost = 100.0
 move_acceleration = 10.0
 move_speed = 50.0
@@ -14,3 +14,4 @@ damage = 10.0
 attack_speed = 2.0
 attack_range = 50.0
 detection_range = 200.0
+scale = Vector2(2, 2)

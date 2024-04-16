@@ -3,11 +3,13 @@ extends Objective
 @onready var collision_shape_2d = $"Objective Area/CollisionShape2D"
 @onready var timer : Timer = $Timer
 
+@export_multiline var objective_text = "Capture the Cemetary!"
+
 var is_checking = false
 var units_in_area : Array[Unit]
 
 func start():
-	popup_label.text = "Capture the Cemetary!"
+	popup_label.text = objective_text
 	popup.visible = true
 	
 	visible = true

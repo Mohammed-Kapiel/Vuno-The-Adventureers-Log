@@ -14,6 +14,8 @@ class_name Unit_Stats extends Resource
 @export var attack_range : float = 50
 
 @export var detection_range : float = 200
+@export var scale = Vector2(1,1)
+
 
 func _to_string():
 	var tmp_str = ""
@@ -21,6 +23,6 @@ func _to_string():
 	tmp_str += "\nSpeed: " + str(move_speed)
 	tmp_str += "\nHealth: " + str(max_health)
 	tmp_str += "\nDamage: " + str(damage)
-	tmp_str += "\nAttack Rate /s: " + str(1/attack_speed)
+	tmp_str += "\nAttack Rate: " + str(1/attack_speed)
 	tmp_str += "\nAttack Range: " + str(attack_range)
 	return tmp_str

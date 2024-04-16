@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://brig5ceet5vng"]
+[gd_scene load_steps=15 format=3 uid="uid://brig5ceet5vng"]
 
 [ext_resource type="Script" path="res://Scenes/hud.gd" id="1_nan5g"]
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_y7mxt"]
 [ext_resource type="PackedScene" uid="uid://bagpxoy41hv8f" path="res://Managers/Spell Manager/spell_button.tscn" id="2_5dus5"]
 [ext_resource type="Script" path="res://Scenes/Scripts/mana_resource.gd" id="2_gvi4r"]
+[ext_resource type="Theme" uid="uid://uhraltuj38dm" path="res://Art Assets/main_theme.tres" id="2_hk1ke"]
 [ext_resource type="PackedScene" uid="uid://dtjl2pvchapxu" path="res://Screens/base_button.tscn" id="4_crhiu"]
 [ext_resource type="PackedScene" uid="uid://cynngi4n55d55" path="res://Managers/Scene Manager/menu_toggle_utility.tscn" id="5_pnktq"]
 [ext_resource type="Resource" uid="uid://da5a6mmjabchu" path="res://Objects/Spells/Summons/summon_angel.tres" id="7_4bspt"]
@@ -22,20 +23,28 @@ events = [SubResource("InputEventKey_j6l0i")]
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_nan5g")
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 100.0
-offset_bottom = 100.0
-
 [node name="Popup" type="Popup" parent="."]
-title = "Test"
+title = "Objective"
 initial_position = 2
-size = Vector2i(141, 100)
+size = Vector2i(830, 200)
 borderless = false
+transparent = true
+theme = ExtResource("2_hk1ke")
+
+[node name="Panel2" type="Panel" parent="Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Popup_Label" type="Label" parent="Popup"]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "This is a test Label"
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 100.0
+offset_bottom = 100.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 50)

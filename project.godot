@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Vuno: The Adventureres Log"
+config/version="0.0.0.1"
 run/main_scene="res://Screens/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0.180392, 1)
+boot_splash/image="res://Art Assets/Mohammed Kapiel-logos_white.png"
+boot_splash/fullsize=false
+config/icon="res://Art Assets/Aesprite Files/Unit_Hydra.png"
 
 [audio]
 
@@ -25,6 +29,15 @@ SpellManager="*res://Managers/Spell Manager/spell_manager.tscn"
 UnitManager="*res://Objects/Units/unit_manager.tscn"
 Hud="*res://Scenes/hud.tscn"
 AudioPlayer="*res://Managers/Audio Manager/audio_player.tscn"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+
+[gui]
+
+timers/tooltip_delay_sec=0.0
 
 [input]
 

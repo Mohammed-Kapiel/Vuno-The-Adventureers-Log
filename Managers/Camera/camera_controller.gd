@@ -52,7 +52,6 @@ func get_input(delta):
 
 func get_movement_input():
 	var input_dir = Input.get_vector("move_camera_left", "move_camera_right", "move_camera_up", "move_camera_down")
-	print(1/current_zoom_amount)
 	velocity = input_dir * speed * abs(1/current_zoom_amount)
 
 func get_slection_input():

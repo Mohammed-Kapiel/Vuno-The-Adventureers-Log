@@ -2,6 +2,9 @@ class_name Unit_Spawner extends Node2D
 
 @onready var level : Node = get_tree().get_first_node_in_group("Levels")
 @onready var unit_manager : Unit_Manager = UnitManager
+@onready var spawn_collision_shape = $"Spawn Area/Spawn Collision Shape"
+var spawn_radius = 0
+
 
 @onready var spawn_timer = $"Spawn Timer"
 
@@ -20,6 +23,7 @@ var is_spawning : bool = false
 
 func _ready():
 	unit_manager.add_spawner(self, faction)
+	spawn_radius = spawn_collision_shape.shape.radius
 	
 	if is_automatic:
 		spawn_timer.one_shot = false
@@ -46,10 +50,12 @@ func _spawn(spawn_position : Vector2):
 	if is_automatic and spawned > max_spawned:
 		return
 	var unit = UNIT.instantiate()
-	level.add_child(unit)	
+	level.add_child(unit)
 	unit.faction = faction
 	unit.stats = unit_stats
-	unit.position = spawn_position
+	var rand_offset_x = randi_range(-spawn_radius, spawn_radius)
+	var rand_offset_y = randi_range(-spawn_radius, spawn_radius)
+	unit.position = spawn_position + Vector2(rand_offset_x, rand_offset_y)
 
 
 func _physics_process(_delta):

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bagpxoy41hv8f"]
+[gd_scene load_steps=4 format=3 uid="uid://bagpxoy41hv8f"]
 
+[ext_resource type="Theme" uid="uid://uhraltuj38dm" path="res://Art Assets/main_theme.tres" id="1_kg2c7"]
 [ext_resource type="Texture2D" uid="uid://dulv2gfgrfins" path="res://icon.svg" id="1_rnfef"]
 [ext_resource type="Script" path="res://Managers/Spell Manager/spell_button.gd" id="2_pwsc8"]
 
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_kg2c7")
 text = "Mana: "
 icon = ExtResource("1_rnfef")
 alignment = 2

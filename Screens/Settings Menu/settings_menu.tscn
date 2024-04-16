@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi7pc6mtfos10"]
+[gd_scene load_steps=5 format=3 uid="uid://bi7pc6mtfos10"]
 
 [ext_resource type="Script" path="res://Screens/Settings Menu/audio_settings_menu.gd" id="1_wg6r5"]
 [ext_resource type="PackedScene" uid="uid://dtjl2pvchapxu" path="res://Screens/base_button.tscn" id="2_kvxxk"]
-[ext_resource type="PackedScene" path="res://Managers/Scene Manager/menu_toggle_utility.tscn" id="3_ln1fk"]
+[ext_resource type="PackedScene" uid="uid://cynngi4n55d55" path="res://Managers/Scene Manager/menu_toggle_utility.tscn" id="3_ln1fk"]
+[ext_resource type="Theme" uid="uid://uhraltuj38dm" path="res://Art Assets/main_theme.tres" id="4_q0tu1"]
 
 [node name="Settings Menu" type="Control"]
 layout_mode = 3
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_q0tu1")
 script = ExtResource("1_wg6r5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -22,6 +24,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_q0tu1")
 color = Color(0, 0, 0, 0.501961)
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
@@ -31,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_q0tu1")
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
@@ -38,12 +42,14 @@ theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("4_q0tu1")
 theme_override_constants/separation = 50
 
 [node name="Close Button" parent="ColorRect/MarginContainer/VBoxContainer" instance=ExtResource("2_kvxxk")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme = ExtResource("4_q0tu1")
 text = "X"
 
 [node name="Menu Toggle Utility" parent="ColorRect/MarginContainer/VBoxContainer/Close Button" node_paths=PackedStringArray("menu_scene") instance=ExtResource("3_ln1fk")]
@@ -51,10 +57,12 @@ menu_scene = NodePath("../../../../..")
 
 [node name="Music Settings" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_q0tu1")
 
 [node name="Music Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/Music Settings"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("4_q0tu1")
 text = "MUSIC_VOLUME"
 
 [node name="Music HSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/Music Settings"]
@@ -62,6 +70,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme = ExtResource("4_q0tu1")
 max_value = 1.0
 step = 0.05
 value = 1.0
@@ -69,10 +78,12 @@ ticks_on_borders = true
 
 [node name="SFX Settings" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_q0tu1")
 
 [node name="SFX Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SFX Settings"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("4_q0tu1")
 text = "SOUND_EFFECTS_VOLUME"
 
 [node name="SFX HSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/SFX Settings"]
@@ -80,6 +91,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme = ExtResource("4_q0tu1")
 max_value = 1.0
 step = 0.05
 value = 1.0

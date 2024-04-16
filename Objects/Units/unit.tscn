@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://nu7um6h5hlo0"]
+[gd_scene load_steps=9 format=3 uid="uid://nu7um6h5hlo0"]
 
 [ext_resource type="Script" path="res://Objects/Units/unit.gd" id="1_lthus"]
 [ext_resource type="Texture2D" uid="uid://bc2plbm64py8h" path="res://Art Assets/Aesprite Files/Unit_Gnome.png" id="3_o5o3v"]
+[ext_resource type="Script" path="res://Objects/Units/selection_draw.gd" id="3_rspun"]
 [ext_resource type="PackedScene" uid="uid://bufu7weo7vawn" path="res://Objects/Components/Attack Manager/attack_manager.tscn" id="4_l5wyw"]
 [ext_resource type="PackedScene" uid="uid://bmms4yangvq1x" path="res://Objects/Components/Health Manager/health_manager.tscn" id="4_scuqf"]
 
@@ -25,17 +26,30 @@ script = ExtResource("1_lthus")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nj2oi")
-
-[node name="Art" type="Sprite2D" parent="."]
-texture = ExtResource("3_o5o3v")
+debug_color = Color(0.913725, 0.423529, 0, 0.419608)
 
 [node name="Selection Overlay" type="Panel" parent="."]
 visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
-offset_bottom = 19.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(16, 16)
 theme_override_styles/panel = SubResource("StyleBoxFlat_u6bx0")
+
+[node name="Attack Range Draw" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_rspun")
+
+[node name="Art" type="Sprite2D" parent="."]
+texture = ExtResource("3_o5o3v")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 60.0

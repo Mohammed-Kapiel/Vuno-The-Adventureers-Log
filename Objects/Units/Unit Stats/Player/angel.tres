@@ -14,3 +14,4 @@ damage = 10.0
 attack_speed = 1.0
 attack_range = 100.0
 detection_range = 200.0
+scale = Vector2(2, 2)

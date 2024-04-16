@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Objects/Components/Health Manager/health_manager.gd" id="1_edhyu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_661hb"]
-radius = 62.2013
+radius = 20.0
 
 [node name="Health Manager" type="Area2D"]
 collision_layer = 2
@@ -19,9 +19,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -30.0
-offset_top = -32.0
+offset_top = -34.0
 offset_right = 30.0
-offset_bottom = -24.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
