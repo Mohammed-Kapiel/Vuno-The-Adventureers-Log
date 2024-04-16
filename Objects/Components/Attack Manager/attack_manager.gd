@@ -3,7 +3,7 @@ class_name Attack_Manager extends Area2D
 var faction = Unit_Manager.factions.Player 
 @onready var attack_timer = $"Attack Timer"
 @onready var attack_collision_shape = $"Attack Collision Shape"
-@onready var attack_timer_ui = $"Attack Timer UI"
+@export var attack_timer_ui : ProgressBar
 
 var timer_wait_time = 1
 
@@ -28,7 +28,6 @@ func setup_stats(new_faction, stats:Unit_Stats):
 	
 	timer_wait_time = 1/stats.attack_speed
 	attack_timer.wait_time = timer_wait_time
-	attack_timer_ui.scale = stats.scale
 
 func _process(delta):
 	if show_attack_timer:

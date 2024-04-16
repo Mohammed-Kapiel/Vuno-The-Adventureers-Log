@@ -18,6 +18,10 @@ class_name Unit extends CharacterBody2D
 @onready var art : Sprite2D = $Art
 @onready var collision_shape_2d = $CollisionShape2D
 
+@onready var attack_ui_container = $"Attack UI Container"
+@onready var health_ui_container = $"Health UI Container"
+
+
 @onready var detection_collision_shape = $"Detection Range/Detection Collision Shape"
 
 var is_following : bool = false
@@ -40,6 +44,8 @@ func update_stats():
 	art.scale = stats.scale
 	selection_overlay.scale = stats.scale
 	collision_shape_2d.scale = stats.scale
+	attack_ui_container.scale = stats.scale
+	health_ui_container.scale = stats.scale
 	
 	art.texture = stats.texture
 	attack_manager.setup_stats(faction, stats)

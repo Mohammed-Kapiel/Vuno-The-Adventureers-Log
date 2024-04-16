@@ -53,7 +53,6 @@ texture = ExtResource("3_o5o3v")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 60.0
-target_desired_distance = 60.0
 path_max_distance = 20.0
 radius = 20.0
 max_neighbors = 20
@@ -68,10 +67,52 @@ collision_layer = 0
 [node name="Detection Collision Shape" type="CollisionShape2D" parent="Detection Range"]
 shape = SubResource("CircleShape2D_1n6xd")
 
-[node name="Attack Manager" parent="." node_paths=PackedStringArray("ignored") instance=ExtResource("4_l5wyw")]
+[node name="Attack Manager" parent="." node_paths=PackedStringArray("attack_timer_ui", "ignored") instance=ExtResource("4_l5wyw")]
+attack_timer_ui = NodePath("../Attack UI Container/Attack Timer UI")
 ignored = [NodePath("../Health Manager")]
 
-[node name="Health Manager" parent="." instance=ExtResource("4_scuqf")]
+[node name="Attack UI Container" type="Node2D" parent="."]
+
+[node name="Attack Timer UI" type="ProgressBar" parent="Attack UI Container"]
+visible = false
+modulate = Color(0.913725, 0.423529, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -25.0
+offset_right = 30.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(30, 4)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="Health Manager" parent="." node_paths=PackedStringArray("health_bar") instance=ExtResource("4_scuqf")]
+health_bar = NodePath("../Health UI Container/Health Bar")
+
+[node name="Health UI Container" type="Node2D" parent="."]
+
+[node name="Health Bar" type="ProgressBar" parent="Health UI Container"]
+modulate = Color(0, 0.619608, 0.0666667, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -34.0
+offset_right = 30.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_value = 1.0
+value = 0.5
+show_percentage = false
 
 [connection signal="body_entered" from="Detection Range" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="Detection Range" to="." method="_on_detection_range_body_exited"]

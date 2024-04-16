@@ -61,16 +61,12 @@ func get_slection_input():
 			is_dragging = true
 	
 	if Input.is_action_just_released("select"):
-		if mouse_start_vector.distance_to(mouse_pos) > selection_dead_zone:
-			mouse_end = mouse_pos_global
-			mouse_end_vector = mouse_pos
-			is_dragging = false 
-			draw_area(false)
-			emit_signal("area_selected")
-		else:
-			mouse_end = mouse_start
-			is_dragging = false 
-			draw_area(false)
+#		if mouse_start_vector.distance_to(mouse_pos) > selection_dead_zone:
+		mouse_end = mouse_pos_global
+		mouse_end_vector = mouse_pos
+		is_dragging = false 
+		draw_area(false)
+		emit_signal("area_selected")
 
 	if is_dragging:
 		mouse_end = mouse_pos_global

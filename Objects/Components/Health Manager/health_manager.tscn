@@ -12,20 +12,3 @@ script = ExtResource("1_edhyu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_661hb")
-
-[node name="Health Bar" type="ProgressBar" parent="."]
-modulate = Color(0, 0.619608, 0.0666667, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -30.0
-offset_top = -34.0
-offset_right = 30.0
-offset_bottom = -26.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-max_value = 1.0
-value = 0.5
-show_percentage = false

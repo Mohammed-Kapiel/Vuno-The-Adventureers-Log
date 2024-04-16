@@ -2,7 +2,7 @@ class_name Health_Manager extends Area2D
 
 signal death(Health_Manager)
 
-@onready var health_bar = $"Health Bar"
+@export var health_bar : ProgressBar
 
 var faction = Unit_Manager.factions.Player 
 
